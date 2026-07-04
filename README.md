@@ -1,96 +1,236 @@
-# 🛡 Honeypot System by Hero
+# 🛡️ Honeypot-System
 
-A **low-interaction SSH honeypot** developed by **Hero**, designed for research and educational purposes.  
-It simulates a vulnerable SSH service, logs attacker activity (IP, credentials, commands), and visualizes intrusion attempts.
+### SSH Honeypot Framework for Cybersecurity Research and Threat Analysis
 
----
+A lightweight low-interaction SSH honeypot designed to simulate vulnerable services, collect attacker behavior, and support cybersecurity education, threat intelligence, and security research.
 
-## 📌 Features
-- **Fake SSH Login** – Attracts attackers with default/weak credentials.
-- **Credential Logging** – Stores attempted usernames and passwords.
-- **Command Tracking** – Captures every shell command entered by the attacker.
-- **GeoIP Lookup** – Identifies the attacker’s approximate location.
-- **Attack Visualization** – Charts for top IPs and frequently used commands.
-- **Sample Logs** – Includes anonymized attack data for testing.
+![Version](https://img.shields.io/badge/version-1.0-blue)
+![Python](https://img.shields.io/badge/python-3.x-green)
+![Status](https://img.shields.io/badge/status-active-success)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ---
 
-## ⚠ Disclaimer
-> This project is created for **educational and research purposes only**.  
-> Do **NOT** expose it to the public internet without proper authorization.  
-> **Hero** is not responsible for any misuse or illegal activity.
+## Overview
+
+HeroHoneypot is a research-oriented SSH honeypot that emulates a vulnerable SSH service to attract unauthorized access attempts and record attacker behavior.
+
+The framework captures authentication attempts, shell commands, source IP information, and geolocation data to help researchers, students, and security professionals study real-world attack patterns in controlled environments.
+
+The project is intended for cybersecurity learning, defensive security research, and threat analysis.
+
+---
+
+## 🚀 Key Features
+
+### Attack Simulation
+
+* Low-Interaction SSH Honeypot
+* Simulated Login Environment
+* Configurable Credentials
+* Realistic Session Behavior
+
+### Threat Intelligence Collection
+
+* Credential Harvest Logging
+* Command Execution Tracking
+* Source IP Monitoring
+* Session Recording
+* Timestamped Event Collection
+
+### Geolocation Analysis
+
+* GeoIP Integration
+* Country Identification
+* City-Level Approximation
+* Attack Source Mapping
+
+### Analytics & Visualization
+
+* Top Attacker IP Analysis
+* Most Common Commands
+* Attack Trend Visualization
+* Session Activity Reports
 
 ---
 
 ## 📂 Project Structure
+
+```text
 honeypot-system/
+
+├── README.md
+├── requirements.txt
+├── config.yaml
 │
-├── README.md # Project documentation
-├── requirements.txt # Dependencies
-├── config.yaml # Configuration file
 ├── src/
-│ ├── honeypot.py # Main honeypot server script
-│ ├── logger.py # Event logging module
-│ ├── visualizer.py # Attack visualization tool
+│   ├── honeypot.py
+│   ├── logger.py
+│   └── visualizer.py
 │
 └── logs/
-└── session_logs.json # Stored attacker logs
+    └── session_logs.json
+```
 
---
-## 🚀 Installation & Setup
+---
 
-### 1️⃣ Clone the repository
+## ⚙️ Installation & Setup
+
+### Clone Repository
+
 ```bash
 git clone https://github.com/your-username/honeypot-system.git
+
 cd honeypot-system
+```
 
-### 2️⃣ Install dependencies
+### Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-### 3️⃣ Download GeoLite2 Database
+### GeoIP Database
 
-Create a free MaxMind account and download GeoLite2-City.mmdb from:
-https://dev.maxmind.com/geoip/geolite2-free-geolocation-data
-Place it in the project root folder.
+Create a free account at MaxMind and download the GeoLite2 City database.
 
-### 4️⃣ Configure settings
+Place the downloaded database file in the project root directory before running the honeypot.
 
-Edit config.yaml:
+### Configuration
 
+Edit the configuration file:
+
+```yaml
 host: "0.0.0.0"
 port: 2222
 username: "admin"
 password: "1234"
+```
 
-### 5️⃣ Run the honeypot
+### Start Honeypot
+
+```bash
 python src/honeypot.py
+```
 
-### 📊 Visualizing Attacks
+---
+
+## 📊 Attack Visualization
+
+Generate analytical reports and charts using:
+
+```bash
 python src/visualizer.py
+```
 
-Example graphs:
-•Top Attacker IPs
-•Most Used Commands
+### Available Insights
 
-### 📜 Sample Log Format.
+* Top Attacker IP Addresses
+* Most Frequently Executed Commands
+* Session Activity Trends
+* Geographic Attack Distribution
+
+---
+
+## 📄 Sample Log Format
+
+```json
 {
-    "timestamp": "2025-08-15T12:34:56",
-    "ip": "192.168.1.101",
-    "username": "admin",
-    "password": "1234",
-    "command": "ls -la",
-    "location": {
-        "city": "New York",
-        "country": "United States"
-    }
+  "timestamp": "2025-08-15T12:34:56",
+  "ip": "192.168.1.101",
+  "username": "admin",
+  "password": "1234",
+  "command": "ls -la",
+  "location": {
+    "city": "New York",
+    "country": "United States"
+  }
 }
+```
 
-### 🔮 Future Improvements
+---
 
-Real-time attack alerts (Telegram/Slack).
-Automatic IP blocking for detected malicious sources.
-Web-based dashboard for live monitoring 
+## 🎯 Use Cases
 
-### 👨‍💻 Author
-Shibnath Hansda – Cybersecurity Enthusiast & Developer
-💼 hansdatechs24@gmail.com
+* Cybersecurity Education
+* Security Awareness Training
+* Threat Intelligence Research
+* Attack Pattern Analysis
+* Defensive Security Testing
+* Academic Research
+* Laboratory Environments
+
+---
+
+## 🔮 Roadmap
+
+### Version 2.x
+
+* Real-Time Attack Notifications
+* Telegram Alert Integration
+* Discord Alert Integration
+* Slack Notifications
+
+### Version 3.x
+
+* Web-Based Monitoring Dashboard
+* Interactive Analytics
+* Session Playback
+* Multi-Honeypot Management
+
+### Version 4.x
+
+* Threat Intelligence Export
+* IOC Generation
+* SIEM Integration
+* Advanced Reporting
+
+### Version 5.x
+
+* Multi-Protocol Support
+* FTP Honeypot
+* HTTP Honeypot
+* Telnet Honeypot
+* SMB Honeypot
+
+---
+
+## ⚠️ Disclaimer
+
+HeroHoneypot is intended exclusively for educational purposes, cybersecurity research, laboratory environments, threat intelligence collection, and authorized security testing.
+
+The software should only be deployed in environments where monitoring and data collection activities are permitted and compliant with applicable laws and regulations.
+
+Users are solely responsible for ensuring legal and ethical use of the software.
+
+The author is not responsible for misuse, unauthorized deployment, or illegal activities conducted using this project.
+
+---
+
+## 👨‍💻 Creator
+
+### Shibnath Hansda
+
+Founder of HansdaTechs
+
+Cybersecurity Enthusiast • Security Researcher • Open Source Developer
+
+### Connect
+
+* GitHub
+* Email
+* LinkedIn
+
+---
+
+## 📜 License
+
+Released under the MIT License.
+
+---
+
+## Honeypot-System
+
+### Observe Threats • Study Attackers • Strengthen Defenses
+
+Built with ❤️ by Shibnath Hansda
